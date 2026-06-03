@@ -1,54 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+:root {
+  --bg: #0d0d0d;
+  --surface: #161616;
+  --card: #1e1e1e;
+  --accent: #c8f135;
+  --accent2: #f1c835;
+  --text: #f0f0f0;
+  --muted: #888;
+  --border: #2a2a2a;
+  --radius: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    background-color: lightblue;
-    font-family: Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  padding: 40px 20px 80px;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(200, 241, 53, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(241, 200, 53, 0.04) 0%, transparent 50%);
 }
-.judul-keren {
-    color: red;
-    text-align: center;
-    text-decoration: underline;
-}
+
+/* ── KARTU PROFIL ── */
 .kartu-saya {
-    background-color: white;   /* Warna latar kartu */
-    width: 60%;                /* Lebarnya cuma 60% layar (tidak full) */
-    margin: auto;              /* AJAIB: Ini bikin kotak otomatis ke TENGAH layar */
-    padding: 20px;             /* Jarak isi dari pinggir kardus */
-    border-radius: 10px;       /* Sudut melengkung */
-    
-    /* Efek Bayangan (Agar terlihat melayang 3D) */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
-    
-    border: 1px solid #ddd;    /* Garis tipis */
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px;
+  max-width: 680px;
+  margin: 0 auto 32px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.6s ease both;
 }
+
+.kartu-saya::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+
+.judul-keren {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.kartu-saya p {
+  color: #bbb;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.kartu-saya h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 24px 0 12px;
+}
+
+.kartu-saya ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kartu-saya ul li {
+  background: rgba(200, 241, 53, 0.08);
+  border: 1px solid rgba(200, 241, 53, 0.2);
+  color: var(--accent);
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.kartu-saya ul li:hover {
+  background: rgba(200, 241, 53, 0.15);
+}
+
+/* ── SECTION WRAPPER ── */
+body > p,
+body > a,
+body > img,
+body > h3,
+body > input,
+body > button,
+body > br,
+body > table {
+  display: block;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── LINK SECTION ── */
+body > p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 32px;
+  margin-bottom: 10px;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+
+body > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+  transition: border-color 0.2s, background 0.2s;
+  animation: fadeUp 0.6s 0.15s ease both;
+}
+
+body > a::after {
+  content: '↗';
+  font-size: 0.8rem;
+}
+
+body > a:hover {
+  border-color: var(--accent);
+  background: rgba(200, 241, 53, 0.06);
+}
+
+/* ── GAMBAR ── */
+body > img {
+  width: 100%;
+  max-width: 680px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 32px;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+/* ── FORM HUBUNGI ── */
+body > h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: var(--text);
+  animation: fadeUp 0.6s 0.25s ease both;
+}
+
+body > input[type="text"] {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 13px 18px;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-bottom: 12px;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+body > input[type="text"]::placeholder {
+  color: #555;
+}
+
+body > input[type="text"]:focus {
+  border-color: var(--accent);
+}
+
 .tombol-kirim {
-    /* Warna Dasar */
-    background-color: #4CAF50; /* Warna Hijau */
-    color: white;             /* Warna Teks Putih */
-    border: none;             /* Hilangkan garis pinggir jelek */
-    
-    /* ILMU BARU: SPASI (Box Model) */
-    padding: 10px 20px;       /* Bantalan dalam: Atas-Bawah 10px, Kiri-Kanan 20px */
-    margin-top: 10px;         /* Jarak luar ke atas */
-    
-    /* Pemanis */
-    border-radius: 5px;       /* Sudut tumpul (tidak lancip) */
-    cursor: pointer;          /* Ubah kursor jadi tangan saat ditunjuk */
+  background: var(--accent);
+  color: #0d0d0d;
+  border: none;
+  padding: 13px 32px;
+  border-radius: 10px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: transform 0.15s, opacity 0.15s;
+  margin-bottom: 40px;
+  animation: fadeUp 0.6s 0.35s ease both;
 }
-/* 1. Atur Wadah Tabelnya */
+
+.tombol-kirim:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.tombol-kirim:active {
+  transform: translateY(0);
+}
+
+/* ── TABEL ── */
 .tabel-jadwal {
-    width: 100%;              /* Lebar tabel memenuhi layar */
-    border-collapse: collapse; /* PENTING: Menggabungkan garis ganda jadi satu garis tipis */
-    margin-top: 20px;         /* Jarak dari elemen atasnya */
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  animation: fadeUp 0.6s 0.4s ease both;
 }
 
-/* 2. Atur Kotak-kotak Sel-nya (Header & Data) */
-.tabel-jadwal th, .tabel-jadwal td {
-    border: 1px solid #ddd;   /* Garis pinggir warna abu-abu muda */
-    padding: 12px;            /* Spasi dalam biar teks lega (Ingat Box Model!) */
-    text-align: left;         /* Teks rata kiri */
-}
-
-/* 3. Khusus Bagian Judul (Header) dikasih warna beda */
 .tabel-jadwal th {
-    background-color: #04AA6D; /* Hijau keren */
-    color: white;              /* Teks putih */
+  background: rgba(200, 241, 53, 0.08);
+  color: var(--accent);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabel-jadwal td {
+  padding: 14px 20px;
+  color: #ccc;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabel-jadwal tr:last-child td {
+  border-bottom: none;
+}
+
+.tabel-jadwal tr:hover td {
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+}
+
+/* ── ANIMASI ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
