@@ -1,0 +1,54 @@
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+}
+.judul-keren {
+    color: red;
+    text-align: center;
+    text-decoration: underline;
+}
+.kartu-saya {
+    background-color: white;   /* Warna latar kartu */
+    width: 60%;                /* Lebarnya cuma 60% layar (tidak full) */
+    margin: auto;              /* AJAIB: Ini bikin kotak otomatis ke TENGAH layar */
+    padding: 20px;             /* Jarak isi dari pinggir kardus */
+    border-radius: 10px;       /* Sudut melengkung */
+    
+    /* Efek Bayangan (Agar terlihat melayang 3D) */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    
+    border: 1px solid #ddd;    /* Garis tipis */
+}
+.tombol-kirim {
+    /* Warna Dasar */
+    background-color: #4CAF50; /* Warna Hijau */
+    color: white;             /* Warna Teks Putih */
+    border: none;             /* Hilangkan garis pinggir jelek */
+    
+    /* ILMU BARU: SPASI (Box Model) */
+    padding: 10px 20px;       /* Bantalan dalam: Atas-Bawah 10px, Kiri-Kanan 20px */
+    margin-top: 10px;         /* Jarak luar ke atas */
+    
+    /* Pemanis */
+    border-radius: 5px;       /* Sudut tumpul (tidak lancip) */
+    cursor: pointer;          /* Ubah kursor jadi tangan saat ditunjuk */
+}
+/* 1. Atur Wadah Tabelnya */
+.tabel-jadwal {
+    width: 100%;              /* Lebar tabel memenuhi layar */
+    border-collapse: collapse; /* PENTING: Menggabungkan garis ganda jadi satu garis tipis */
+    margin-top: 20px;         /* Jarak dari elemen atasnya */
+}
+
+/* 2. Atur Kotak-kotak Sel-nya (Header & Data) */
+.tabel-jadwal th, .tabel-jadwal td {
+    border: 1px solid #ddd;   /* Garis pinggir warna abu-abu muda */
+    padding: 12px;            /* Spasi dalam biar teks lega (Ingat Box Model!) */
+    text-align: left;         /* Teks rata kiri */
+}
+
+/* 3. Khusus Bagian Judul (Header) dikasih warna beda */
+.tabel-jadwal th {
+    background-color: #04AA6D; /* Hijau keren */
+    color: white;              /* Teks putih */
+}
